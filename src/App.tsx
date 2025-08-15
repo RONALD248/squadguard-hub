@@ -9,6 +9,9 @@ import { Header } from "@/components/layout/Header";
 import Dashboard from "./pages/Dashboard";
 import Visitors from "./pages/Visitors";
 import Guards from "./pages/Guards";
+import Clients from "./pages/Clients";
+import Payments from "./pages/Payments";
+import Reports from "./pages/Reports";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,9 +32,9 @@ const App = () => (
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/visitors" element={<Visitors />} />
                   <Route path="/guards" element={<Guards />} />
-                  <Route path="/payments" element={<div className="p-6"><h1 className="text-2xl font-bold">Payments & Payroll</h1><p className="text-muted-foreground">Feature coming soon...</p></div>} />
-                  <Route path="/clients" element={<div className="p-6"><h1 className="text-2xl font-bold">Client Management</h1><p className="text-muted-foreground">Feature coming soon...</p></div>} />
-                  <Route path="/reports" element={<div className="p-6"><h1 className="text-2xl font-bold">Reports & Analytics</h1><p className="text-muted-foreground">Feature coming soon...</p></div>} />
+                  <Route path="/clients" element={<Clients />} />
+                  <Route path="/payments" element={<Payments />} />
+                  <Route path="/reports" element={<Reports />} />
                   <Route path="/attendance" element={<div className="p-6"><h1 className="text-2xl font-bold">Guard Attendance</h1><p className="text-muted-foreground">Feature coming soon...</p></div>} />
                   <Route path="/schedule" element={<div className="p-6"><h1 className="text-2xl font-bold">Shift Schedule</h1><p className="text-muted-foreground">Feature coming soon...</p></div>} />
                   <Route path="/settings" element={<div className="p-6"><h1 className="text-2xl font-bold">Settings</h1><p className="text-muted-foreground">Feature coming soon...</p></div>} />
