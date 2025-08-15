@@ -18,7 +18,30 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+			},
 			colors: {
+				// Squad Three Security Brand Colors
+				'security-navy': {
+					DEFAULT: 'hsl(var(--security-navy))',
+					light: 'hsl(var(--security-navy-light))',
+					dark: 'hsl(var(--security-navy-dark))'
+				},
+				'security-silver': {
+					DEFAULT: 'hsl(var(--security-silver))',
+					light: 'hsl(var(--security-silver-light))'
+				},
+				'security-gray': {
+					DEFAULT: 'hsl(var(--security-gray))',
+					light: 'hsl(var(--security-gray-light))'
+				},
+				// Status Colors
+				'status-success': 'hsl(var(--status-success))',
+				'status-warning': 'hsl(var(--status-warning))',
+				'status-danger': 'hsl(var(--status-danger))',
+				'status-info': 'hsl(var(--status-info))',
+				// Core Theme
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -62,6 +85,19 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-silver': 'var(--gradient-silver)',
+				'gradient-hero': 'var(--gradient-hero)',
+			},
+			boxShadow: {
+				'primary': 'var(--shadow-primary)',
+				'card': 'var(--shadow-card)',
+				'nav': 'var(--shadow-nav)',
+			},
+			transitionTimingFunction: {
+				'smooth': 'var(--transition-smooth)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
