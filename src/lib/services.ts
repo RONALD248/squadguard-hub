@@ -4,16 +4,8 @@ import * as mock from './mock'
 
 const USE_MOCK = import.meta.env.VITE_USE_MOCK === 'true'
 
-// If mock mode is enabled, export the mock services so the UI works without a database
-if (USE_MOCK) {
-  export const GuardService = mock.GuardService
-  export const ClientService = mock.ClientService
-  export const ScheduleService = mock.ScheduleService
-  export const AttendanceService = mock.AttendanceService
-  export const VisitorService = mock.VisitorService
-  export const PaymentService = mock.PaymentService
-} else {
-  export const AttendanceService = {
+// Define services based on mock mode
+const AttendanceServiceImpl = USE_MOCK ? mock.AttendanceService : {
     async getAll() {
       const { data, error } = await supabase
         .from('attendance')
@@ -65,7 +57,7 @@ if (USE_MOCK) {
     }
   }
 
-  export const VisitorService = {
+const VisitorServiceImpl = USE_MOCK ? mock.VisitorService : {
     async getAll() {
       const { data, error } = await supabase
         .from('visitors')
@@ -113,7 +105,7 @@ if (USE_MOCK) {
     }
   }
 
-  export const PaymentService = {
+const PaymentServiceImpl = USE_MOCK ? mock.PaymentService : {
     async getAll() {
       const { data, error } = await supabase
         .from('payments')
@@ -159,7 +151,7 @@ if (USE_MOCK) {
     }
   }
 
-  export const GuardService = {
+const GuardServiceImpl = USE_MOCK ? mock.GuardService : {
     async getAll() {
       const { data, error } = await supabase
         .from('guards')
@@ -214,7 +206,7 @@ if (USE_MOCK) {
     }
   }
 
-  export const ClientService = {
+const ClientServiceImpl = USE_MOCK ? mock.ClientService : {
     async getAll() {
       const { data, error } = await supabase
         .from('clients')
@@ -269,7 +261,7 @@ if (USE_MOCK) {
     }
   }
 
-  export const ScheduleService = {
+const ScheduleServiceImpl = USE_MOCK ? mock.ScheduleService : {
     async getAll() {
       const { data, error } = await supabase
         .from('schedules')
@@ -323,4 +315,11 @@ if (USE_MOCK) {
       if (error) throw error
     }
   }
-}
+
+// Export the services
+export const AttendanceService = AttendanceServiceImpl
+export const VisitorService = VisitorServiceImpl
+export const PaymentService = PaymentServiceImpl
+export const GuardService = GuardServiceImpl
+export const ClientService = ClientServiceImpl
+export const ScheduleService = ScheduleServiceImpl
