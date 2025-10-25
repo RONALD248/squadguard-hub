@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Calendar, Clock, Plus, Users, MapPin, Edit, Trash2, Filter } from "lucide-react";
+import { format } from "date-fns";
+import { Calendar as CalendarIcon, Clock, Plus, Users, MapPin, Edit, Trash2, Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -132,7 +133,7 @@ export default function Schedule() {
         </div>
         <div className="flex gap-3">
           <Button variant="outline" className="gap-2">
-            <Calendar className="w-4 h-4" />
+            <CalendarIcon className="w-4 h-4" />
             Calendar View
           </Button>
           <Dialog>
@@ -219,7 +220,7 @@ export default function Schedule() {
           title="Total Shifts"
           value={totalShifts.toString()}
           description="Scheduled shifts"
-          icon={Calendar}
+          icon={CalendarIcon}
           change="+12%"
           changeType="positive"
         />
