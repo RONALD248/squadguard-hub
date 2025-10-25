@@ -1,4 +1,6 @@
 import { Bell, Search, User, LogOut } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SidebarTrigger } from "@/components/ui/sidebar";
@@ -11,8 +13,22 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Badge } from "@/components/ui/badge";
+import { toast } from "sonner";
 
 export function Header() {
+  const navigate = useNavigate();
+  const { user, signOut } = useAuth();
+
+  const handleLogout = async () => {
+    try {
+      await signOut();
+      toast.success("Logged out successfully");
+      navigate("/auth");
+    } catch (error) {
+      toast.error("Failed to log out");
+    }
+  };
+
   return (
     <header className="h-16 bg-background border-b border-border shadow-nav flex items-center justify-between px-4">
       <div className="flex items-center gap-4">
@@ -46,8 +62,8 @@ export function Header() {
                 <User className="w-4 h-4 text-white" />
               </div>
               <div className="hidden md:block text-left">
-                <div className="text-sm font-medium">Admin User</div>
-                <div className="text-xs text-muted-foreground">Administrator</div>
+                <div className="text-sm font-medium">{user?.email || "User"}</div>
+                <div className="text-xs text-muted-foreground">Authenticated</div>
               </div>
             </Button>
           </DropdownMenuTrigger>
@@ -58,7 +74,7 @@ export function Header() {
               <User className="mr-2 h-4 w-4" />
               Profile
             </DropdownMenuItem>
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={handleLogout}>
               <LogOut className="mr-2 h-4 w-4" />
               Logout
             </DropdownMenuItem>

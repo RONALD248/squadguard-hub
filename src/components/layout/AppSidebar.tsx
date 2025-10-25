@@ -7,7 +7,8 @@ import {
   FileText,
   Settings,
   UserCheck,
-  Clock
+  Clock,
+  BookOpen
 } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -24,11 +25,12 @@ import {
 } from "@/components/ui/sidebar";
 
 const menuItems = [
-  { title: "Dashboard", url: "/", icon: LayoutDashboard },
+  { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
   { title: "Visitor Management", url: "/visitors", icon: Users },
   { title: "Security Guards", url: "/guards", icon: Shield },
   { title: "Payments & Payroll", url: "/payments", icon: CreditCard },
   { title: "Client Management", url: "/clients", icon: Building },
+  { title: "Occurrence Book", url: "/occurrence-book", icon: BookOpen },
   { title: "Reports & Analytics", url: "/reports", icon: FileText },
   { title: "Guard Attendance", url: "/attendance", icon: UserCheck },
   { title: "Shift Schedule", url: "/schedule", icon: Clock },
